@@ -46,15 +46,15 @@ public class Main {
       }
 
       if(elementCategory != null)
-        image = takeSnapShot(driver, destinationPath + "categoryImage.png", elementCategory);
+        takeSnapShot(driver, destinationPath + "categoryImage.png", elementCategory);
 
       System.out.println("Creating HTML file...");
       File resultFile = new File(destinationPath + "emailReport.html");
       PrintWriter writer = new PrintWriter(resultFile);
       writer.write("<html>\n");
       writer.append("<body>\n");
-//      writer.append("<p><img data-inline=\"true\" src=\"categoryImage.png\"/></p>\n");
-      writer.append("<p><img alt=\"image\" data-inline=\"true\" src=\"data:image/png;base64, ").append(image).append("\"/></p>\n");
+      writer.append("<p><img src=\"cid:categoryImage.png\"/></p>\n");
+//      writer.append("<p><img alt=\"image\" data-inline=\"true\" src=\"data:image/png;base64, ").append(image).append("\"/></p>\n");
       writer.append("</html>\n");
       writer.close();
       System.out.println("Email Report Generation Complete!");
@@ -67,7 +67,7 @@ public class Main {
     }
   }
 
-  private static String takeSnapShot(WebDriver webdriver, String destinationPath, WebElement webElement) {
+  private static void takeSnapShot(WebDriver webdriver, String destinationPath, WebElement webElement) {
     String base64String = "";
     try {
       TakesScreenshot scrShot = ((TakesScreenshot) webdriver);
@@ -93,7 +93,7 @@ public class Main {
     } catch (IOException e) {
       System.out.println("InputOutput Exception");
     }
-    return base64String;
+//    return base64String;
   }
 
   private static String imgToBase64String(final RenderedImage img)
