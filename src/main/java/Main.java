@@ -53,9 +53,6 @@ public class Main {
       writer.append("</html>\n");
       writer.close();
       System.out.println("Email Report Generation Complete!");
-    } catch (NoSuchElementException e) {
-      System.out.println("Error with XPath. Please check the XPath values");
-      e.printStackTrace();
     } catch (Exception e) {
       System.out.println("Error Message = " + e.getMessage());
       e.printStackTrace();
