@@ -32,11 +32,14 @@ public class Main {
       chromeOptions.addArguments("--disable-gpu", "--headless", "--no-sandbox", "--disable-dev-shm-usage", "-allow-running-insecure-content");
       driver = new ChromeDriver(chromeOptions);
       System.out.println("Chrome Launched !!!");
-      driver.get("file:///" + reportPath);                                                                       //append htmlfilelocation
       driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-      driver.manage().window().maximize();
+      Dimension dimension = new Dimension(1440, 768);
+      driver.manage()
+        .window()
+        .setSize(dimension);
+      driver.get("file:///" + reportPath);
       try {
-        elementCategory = driver.findElement(By.id("charts-row"));
+        elementCategory = driver.findElement(By.tagName("html"));
       } catch (ElementNotInteractableException e) {
         System.out.println(e.getMessage());
       }
