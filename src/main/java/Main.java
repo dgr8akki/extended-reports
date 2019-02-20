@@ -45,10 +45,10 @@ public class Main {
       }
 
       if(elementCategory != null)
-        takeSnapShot(driver, destinationPath + "\\categoryImage.png", elementCategory);
+        takeSnapShot(driver, destinationPath + "categoryImage.png", elementCategory);
 
       System.out.println("Creating HTML file...");
-      File resultFile = new File(destinationPath + "\\emailReport.html");
+      File resultFile = new File(destinationPath + "emailReport.html");
       PrintWriter writer = new PrintWriter(resultFile);
       writer.write("<html>\n");
       writer.append("<body>\n");
