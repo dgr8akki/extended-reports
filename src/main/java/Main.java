@@ -36,7 +36,7 @@ public class Main {
       driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
       driver.manage().window().maximize();
       try {
-        elementCategory = driver.findElement(By.cssSelector("div.card-panel"));
+        elementCategory = driver.findElement(By.id("charts-row"));
       } catch (ElementNotInteractableException e) {
         System.out.println(e.getMessage());
       }
