@@ -18,6 +18,12 @@ public class Main extends TestBase {
       System.out.println("BASE URL: " + baseUrl);
       driver.get("file:///" + baseUrl);
 
+      try {
+        driver.switchTo().alert().accept();
+      } catch(Exception e){
+        System.out.println("unexpected alert not present");
+      }
+
       String locator = "#slide-out > li:nth-child(3) > a > i";
 
       if(isElementVisible(locator)) {

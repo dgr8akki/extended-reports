@@ -2,6 +2,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,6 +15,7 @@ public class TestBase {
     baseUrl = "https://www.google.com";
     WebDriverManager.chromedriver().setup();
     ChromeOptions chromeOptions = new ChromeOptions();
+    chromeOptions.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
     chromeOptions.addArguments("--headless");
     chromeOptions.addArguments("--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");
     driver = new ChromeDriver(chromeOptions);
